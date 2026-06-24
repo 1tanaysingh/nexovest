@@ -1,0 +1,32 @@
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.news-card {
+    background: #374151;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.news-card h3 {
+    color: white;
+    margin: 10px 0;
+}
+
+.news-card p {
+    color: #d1d5db;
+}
+
+.news-card a {
+    color: #00d09c;
+    text-decoration: none;
+}

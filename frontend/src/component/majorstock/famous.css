@@ -1,0 +1,60 @@
+.ticker-section {
+  width: 95%;
+  margin: 30px auto;
+}
+
+.ticker-section h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.ticker-scroll-wrapper {
+  overflow-x: auto;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 20px;
+}
+
+.ticker-card {
+  min-width: 220px;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  background: #111827;
+
+  border: 1px solid #1e293b;
+
+  transition: 0.3s;
+
+  color: white;
+}
+
+.ticker-card:hover {
+  transform: translateY(-8px);
+
+  border-color: #00c896;
+}
+
+.ticker-card h3 {
+  font-size: 24px;
+}
+
+.ticker-card p {
+  margin: 15px 0;
+
+  font-size: 22px;
+
+  font-weight: 600;
+}
+
+.positive {
+  color: #00c896;
+}
+
+.negative {
+  color: #ef4444;
+}

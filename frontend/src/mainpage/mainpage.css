@@ -1,0 +1,170 @@
+.mainpage {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  grid-template-areas:
+    "chart top"
+    "price news"
+    "chat news";
+
+  gap: 20px;
+  padding: 20px;
+
+  min-height: 100vh;
+
+  background: #081225;
+}
+
+/* Common Card Style */
+
+.chart-box,
+.topnews-box,
+.price-box,
+.chat-box,
+.news-box {
+  background: #1a2538;
+  border-radius: 20px;
+  padding: 20px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.2);
+
+  transition: 0.3s;
+}
+
+.chart-box:hover,
+.topnews-box:hover,
+.price-box:hover,
+.chat-box:hover,
+.news-box:hover {
+  transform: translateY(-3px);
+}
+
+/* Chart */
+
+.chart-box {
+  grid-area: chart;
+  min-height: 450px;
+}
+
+.chart-box h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* Top News */
+
+.topnews-box {
+  grid-area: top;
+  min-height: 100px;
+}
+
+.topnews-box h2 {
+  color: white;
+  font-size: 32px;
+}
+
+/* Price Box */
+
+.price-box {
+  grid-area: price;
+  min-height: 100px;
+
+  display: flex;
+  align-items: center;
+
+  color: white;
+  font-size: 28px;
+}
+
+/* AI Suggestion Box */
+
+.chat-box {
+  grid-area: chat;
+
+  min-height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 208, 156, 0.2);
+
+  background: linear-gradient(
+    135deg,
+    #1a2538,
+    #152032
+  );
+}
+
+.chat-box h2 {
+  color: #00d09c;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.chat-box p {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.chat-box span {
+  margin-top: 10px;
+  color: #aab3c5;
+  font-size: 15px;
+}
+
+/* News Section */
+
+.news-box {
+  grid-area: news;
+
+  min-height: 500px;
+  max-height: 700px;
+
+  overflow-y: auto;
+}
+
+/* Scrollbar */
+
+.news-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.news-box::-webkit-scrollbar-thumb {
+  background: #00d09c;
+  border-radius: 20px;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .mainpage {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "chart"
+      "top"
+      "price"
+      "chat"
+      "news";
+  }
+
+  .news-box {
+    max-height: none;
+  }
+
+  .chart-box h1 {
+    font-size: 30px;
+  }
+
+  .chat-box p {
+    font-size: 26px;
+  }
+}

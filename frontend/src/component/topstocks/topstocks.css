@@ -1,0 +1,123 @@
+.top-movers-section {
+  width: 95%;
+  margin: 50px auto;
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+.section-header p {
+  color: #94a3b8;
+}
+
+.stocks-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 25px;
+}
+
+.stock-card {
+  background: #111827;
+
+  border: 1px solid #1e293b;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.stock-card:hover {
+  transform: translateY(-10px);
+
+  border-color: #00c896;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card-top h3 {
+  color: white;
+
+  font-size: 28px;
+}
+
+.stock-name {
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+.stock-price {
+  margin-top: 20px;
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: 700;
+}
+
+.stock-change {
+  margin-top: 15px;
+
+  font-size: 18px;
+}
+
+.positive {
+  color: #00c896;
+}
+
+.negative {
+  color: #ef4444;
+}
+
+.volume {
+  margin-top: 20px;
+
+  color: #94a3b8;
+}
+
+.btn-container {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 50px;
+}
+
+.load-btn {
+  padding: 15px 40px;
+
+  border: none;
+
+  border-radius: 40px;
+
+  background: #00c896;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.load-btn:hover {
+  transform: translateY(-4px);
+
+  background: #00aa7b;
+}

@@ -1,0 +1,22 @@
+/* App.css */
+
+.container {
+  width: 300px;
+  margin: 50px auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.box {
+  border: 1px solid gray;
+  margin-top: 10px;
+}
+
+p {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}

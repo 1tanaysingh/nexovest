@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: #121212;
+  color: #ffffff;
+}
+
+.stock-page {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.stock-page h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 35px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 550px;
+  padding: 16px 20px;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  background: #1a1a1a;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #00d09c;
+}
+
+.selected-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.selected-bar span {
+  background: rgba(0, 208, 156, 0.12);
+  color: #00d09c;
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 208, 156, 0.3);
+  font-size: 14px;
+}
+
+.stocks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+  gap: 20px;
+}
+
+.stock-card {
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 18px;
+  padding: 22px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.stock-card:hover {
+  transform: translateY(-4px);
+  border-color: #3a3a3a;
+}
+
+.stock-card.selected {
+  border: 1px solid #00d09c;
+  background: rgba(0, 208, 156, 0.05);
+}
+
+.stock-symbol {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+}
+
+.stock-name {
+  margin-top: 10px;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+.stock-price {
+  margin-top: 18px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #00d09c;
+}
+
+.selection-count {
+  margin-top: 30px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.selection-count span {
+  color: #00d09c;
+  font-weight: 700;
+}
+
+.save-btn {
+  display: block;
+  margin: 25px auto 0;
+  border: none;
+  background: #00d09c;
+  color: #121212;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.save-btn:disabled {
+  background: #3f3f3f;
+  color: #9ca3af;
+  cursor: not-allowed;
+}

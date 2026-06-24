@@ -1,0 +1,13 @@
+.chart-container {
+    height: 100%;
+}
+
+.stock-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.stock-info p {
+    color: white;
+}

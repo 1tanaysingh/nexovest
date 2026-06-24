@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: #121212;
+}
+
+.choice-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(0, 208, 156, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(37, 99, 235, 0.15),
+      transparent 35%
+    ),
+    #121212;
+}
+
+.choice-container {
+  width: 90%;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.choice-container h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.choice-container p {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+.choice-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.choice-card {
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 24px;
+  padding: 45px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.choice-card:hover {
+  transform: translateY(-8px);
+}
+
+.crypto-card:hover {
+  border-color: #f7931a;
+  box-shadow: 0 0 30px rgba(247, 147, 26, 0.18);
+}
+
+.stock-card:hover {
+  border-color: #00d09c;
+  box-shadow: 0 0 30px rgba(0, 208, 156, 0.18);
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.choice-card h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.choice-card span {
+  color: #9ca3af;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .choice-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .choice-cards {
+    grid-template-columns: 1fr;
+  }
+}

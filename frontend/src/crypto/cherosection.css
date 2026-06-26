@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050816;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.crypto-page {
+  min-height: 100vh;
+  background: #050816;
+  color: #ffffff;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 58px;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  background: rgba(5, 8, 22, 0.95);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #1e293b;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.nav-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  color: #00c896;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -22px;
+  width: 0;
+  height: 2px;
+  background: #00c896;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover::after,
+.nav-btn.active::after {
+  width: 100%;
+}
+
+.crypto-content,
+.top-movers-section {
+  padding: 24px 48px;
+}
+
+.crypto-content h1 {
+  margin: 0 0 18px;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.coin-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(160px, 183px));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.coin-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 15px;
+  padding: 20px 21px;
+  min-height: 146px;
+  transition: 0.3s ease;
+}
+
+.coin-card:hover,
+.stock-card:hover {
+  transform: translateY(-4px);
+  border-color: #00c896;
+  box-shadow: 0 16px 32px rgba(0, 200, 150, 0.08);
+}
+
+.coin-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coin-title img,
+.coin-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.coin-title h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.coin-card h3 {
+  margin: 22px 0 9px;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.card-line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.green,
+.positive {
+  color: #00c896;
+}
+
+.red,
+.negative {
+  color: #ff4d4d;
+}
+
+.coin-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.section-header {
+  margin-top: 10px;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.section-header p {
+  margin: 42px 0 8px;
+  color: #bfdbfe;
+  font-size: 14px;
+}
+
+.section-header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 26px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.stocks-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.stock-card {
+  min-height: 194px;
+  padding: 20px 21px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.stock-card:first-child {
+  border-color: #00c896;
+}
+
+.card-top {
+  margin-bottom: 14px;
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stock-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.stock-name {
+  display: block;
+  margin-top: 2px;
+  color: #bfdbfe;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.stock-price {
+  margin: 14px 0 10px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.stock-change {
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+.volume {
+  color: #bfdbfe;
+  font-size: 14px;
+}
+
+.btn-container {
+  margin-top: 42px;
+}
+
+.load-btn {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  background: #00c896;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.load-btn:hover {
+  background: #00b386;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1250px) {
+  .coin-grid,
+  .stocks-grid {
+    grid-template-columns: repeat(3, minmax(190px, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    padding: 0 22px;
+  }
+
+  .nav-links {
+    gap: 28px;
+  }
+
+  .crypto-content,
+  .top-movers-section {
+    padding: 22px;
+  }
+
+  .crypto-content h1 {
+    font-size: 34px;
+  }
+
+  .coin-grid,
+  .stocks-grid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+
+  .section-header p {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .navbar {
+    height: auto;
+    padding: 18px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav-btn {
+    font-size: 13px;
+  }
+
+  .nav-btn::after {
+    bottom: -10px;
+  }
+
+  .crypto-content,
+  .top-movers-section {
+    padding: 18px;
+  }
+
+  .crypto-content h1 {
+    font-size: 30px;
+  }
+
+  .coin-grid,
+  .stocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .stock-card,
+  .coin-card {
+    min-height: auto;
+  }
+}

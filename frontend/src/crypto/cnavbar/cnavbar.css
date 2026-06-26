@@ -1,0 +1,168 @@
+/* .crypto-page {
+  min-height: 100vh;
+  background: #050816;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  background: rgba(5, 8, 22, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #1e293b;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  color: #00c896;
+}
+
+.nav-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: #00c896;
+  transition: 0.3s;
+}
+
+.nav-btn:hover::after,
+.nav-btn.active::after {
+  width: 100%;
+}
+
+.crypto-content {
+  padding: 48px;
+}
+
+.crypto-content h1 {
+  font-size: 56px;
+  font-weight: 800;
+  margin: 0 0 30px;
+}
+
+.coin-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(210px, 1fr));
+  gap: 24px;
+}
+
+.coin-card {
+  background: #111827;
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  border-radius: 18px;
+  padding: 28px 30px;
+  min-height: 160px;
+  transition: 0.3s;
+}
+
+.coin-card:hover {
+  transform: translateY(-6px);
+  border-color: #00c896;
+  box-shadow: 0 18px 40px rgba(0, 200, 150, 0.12);
+}
+
+.coin-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coin-title img {
+  width: 34px;
+  height: 34px;
+}
+
+.coin-title h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.coin-card h3 {
+  font-size: 26px;
+  margin: 30px 0 12px;
+}
+
+.card-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  margin-bottom: 14px;
+}
+
+.green {
+  color: #00c896;
+  font-size: 18px;
+  margin: 0;
+}
+
+.red {
+  color: #ff4d4d;
+  font-size: 18px;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .coin-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+
+  .crypto-content {
+    padding: 32px 20px;
+  }
+
+  .crypto-content h1 {
+    font-size: 38px;
+  }
+
+  .coin-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-btn {
+    font-size: 14px;
+  }
+
+  .coin-grid {
+    grid-template-columns: 1fr;
+  }
+} */

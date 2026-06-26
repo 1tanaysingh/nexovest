@@ -14,7 +14,7 @@ export function token(req,res,next){
   }
   try{
     const decoded = jwt.verify(tokenstr,process.env.JWT_SECRET);
-    req.userId = decoded;
+    req.userId = decoded.id;
     next();
   } catch (err) {
     console.log("Invalid token");

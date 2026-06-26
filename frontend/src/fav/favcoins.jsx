@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./favcoins.css";
 
 function Favcoins() {
+  const navigate = useNavigate();
   const [topCoins, setTopCoins] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [selectedCoins, setSelectedCoins] = useState([]);
@@ -64,10 +66,12 @@ function Favcoins() {
       );
       console.log("Favorites saved successfully");
       alert("Favorites Saved");
+      navigate("/chome");
     } catch (error) {
       console.log(error);
     }
     console.log("Selected Coins:", selectedCoins);
+    
   };
   const displayCoins = search.trim() === "" ? topCoins : searchResults;
 

@@ -3,12 +3,13 @@ import cors from "cors";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import {saveFavcrypto} from "./controller/cryptofav.js";
+import { saveFavcrypto } from "./controller/cryptofav.js";
+import { saveFavStocks } from "./controller/stocksfav.js";
 import { signup } from "./auth/signup.js";
 import { login } from "./auth/login.js";
 import { token } from "./middleware/token.js";
-import {saveFavStocks} from "./controller/stocksfav.js";
-
+import { sendFavCrypto } from "./controller/sendfavcrypto.js";
+import { sendFavStocks } from "./controller/sendfavstocks.js";
 dotenv.config();
 
 const app = express();
@@ -19,7 +20,7 @@ app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
-  })
+  }),
 );
 
 // Home Route
@@ -45,4 +46,8 @@ app.post("/signup", signup);
 app.post("/login", login);
 app.post("/savefavcrypto", token, saveFavcrypto);
 app.post("/savefavstocks", token, saveFavStocks);
+app.get("/sendfavcrypto", token,sendFavCrypto);
+app.get("/sendfavstocks", token, sendFavStocks);
+
 export default app;
+

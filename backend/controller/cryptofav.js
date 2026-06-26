@@ -33,7 +33,7 @@ export const saveFavcrypto = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-
+    console.log("Error saving favorites:", error);
     res.status(500).json({
       message: "Error saving favorites",
     });

@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./famous.css"; // ya jo bhi tera css file name hai
 
 function Famous() {
+  const navigate = useNavigate();
   const [appdata, setAppData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [amazonData, setAmazonData] = useState([]);
@@ -15,35 +17,35 @@ function Famous() {
   useEffect(() => {
     async function fetchData() {
       const appledata = await axios.get(
-        `https://financialmodelingprep.com/stable/quote?symbol=AAPL&apikey=${API_KEY}`
+        `https://financialmodelingprep.com/stable/quote?symbol=AAPL&apikey=${API_KEY}`,
       );
       setAppData(appledata.data);
     }
 
     async function fetchAmazonData() {
       const amazonData = await axios.get(
-        `https://financialmodelingprep.com/stable/quote?symbol=AMZN&apikey=${API_KEY}`
+        `https://financialmodelingprep.com/stable/quote?symbol=AMZN&apikey=${API_KEY}`,
       );
       setAmazonData(amazonData.data);
     }
 
     async function fetchNvdaData() {
       const nvdaData = await axios.get(
-        `https://financialmodelingprep.com/stable/quote?symbol=NVDA&apikey=${API_KEY}`
+        `https://financialmodelingprep.com/stable/quote?symbol=NVDA&apikey=${API_KEY}`,
       );
       setNvdaData(nvdaData.data);
     }
 
     async function fetchGoogleData() {
       const googleData = await axios.get(
-        `https://financialmodelingprep.com/stable/quote?symbol=GOOGL&apikey=${API_KEY}`
+        `https://financialmodelingprep.com/stable/quote?symbol=GOOGL&apikey=${API_KEY}`,
       );
       setGoogleData(googleData.data);
     }
 
     async function fetchMetaData() {
       const metaData = await axios.get(
-        `https://financialmodelingprep.com/stable/quote?symbol=META&apikey=${API_KEY}`
+        `https://financialmodelingprep.com/stable/quote?symbol=META&apikey=${API_KEY}`,
       );
       setMetaData(metaData.data);
     }
@@ -62,145 +64,130 @@ function Famous() {
 
     fetchAll();
   }, []);
+  function handleClick(symbol) {
+    navigate(`/mainpage/${symbol}`);
+  }
 
- return (
-  <>
-    {loading ? (
-      <div className="ticker-loading">
-        Loading market data...
-      </div>
-    ) : (
-      <section className="ticker-section">
-        <h2>Market Overview</h2>
+  return (
+    <>
+      {loading ? (
+        <div className="ticker-loading">Loading market data...</div>
+      ) : (
+        <section className="ticker-section">
+          <h2>Market Overview</h2>
 
-        <div className="ticker-scroll-wrapper">
-          <div className="ticker-track">
-
-            {appdata[0] && (
-              <div className="ticker-card">
-                <h3>{appdata[0].symbol}</h3>
-                <p>${appdata[0].price?.toFixed(2)}</p>
-
-                <span
-                  className={
-                    appdata[0].changesPercentage >= 0
-                      ? "positive"
-                      : "negative"
-                  }
+          <div className="ticker-scroll-wrapper">
+            <div className="ticker-track">
+              {appdata[0] && (
+                <div
+                  className="ticker-card"
+                  onClick={() => handleClick(appdata[0].symbol)}
                 >
-                  {appdata[0].changesPercentage >= 0
-                    ? "▲"
-                    : "▼"}
+                  <h3>{appdata[0].symbol}</h3>
+                  <p>${appdata[0].price?.toFixed(2)}</p>
 
-                  {" "}
-                  {Math.abs(
-                    appdata[0].changesPercentage
-                  ).toFixed(2)}%
-                </span>
-              </div>
-            )}
+                  <span
+                    className={
+                      appdata[0].changesPercentage >= 0
+                        ? "positive"
+                        : "negative"
+                    }
+                  >
+                    {appdata[0].changesPercentage >= 0 ? "▲" : "▼"}{" "}
+                    {Math.abs(appdata[0].changesPercentage).toFixed(2)}%
+                  </span>
+                </div>
+              )}
 
-            {nvdaData[0] && (
-              <div className="ticker-card">
-                <h3>{nvdaData[0].symbol}</h3>
-                <p>${nvdaData[0].price?.toFixed(2)}</p>
-
-                <span
-                  className={
-                    nvdaData[0].changesPercentage >= 0
-                      ? "positive"
-                      : "negative"
-                  }
+              {nvdaData[0] && (
+                <div
+                  className="ticker-card"
+                  onClick={() => handleClick(nvdaData[0].symbol)}
                 >
-                  {nvdaData[0].changesPercentage >= 0
-                    ? "▲"
-                    : "▼"}
+                  <h3>{nvdaData[0].symbol}</h3>
+                  <p>${nvdaData[0].price?.toFixed(2)}</p>
 
-                  {" "}
-                  {Math.abs(
-                    nvdaData[0].changesPercentage
-                  ).toFixed(2)}%
-                </span>
-              </div>
-            )}
+                  <span
+                    className={
+                      nvdaData[0].changesPercentage >= 0
+                        ? "positive"
+                        : "negative"
+                    }
+                  >
+                    {nvdaData[0].changesPercentage >= 0 ? "▲" : "▼"}{" "}
+                    {Math.abs(nvdaData[0].changesPercentage).toFixed(2)}%
+                  </span>
+                </div>
+              )}
 
-            {amazonData[0] && (
-              <div className="ticker-card">
-                <h3>{amazonData[0].symbol}</h3>
-                <p>${amazonData[0].price?.toFixed(2)}</p>
-
-                <span
-                  className={
-                    amazonData[0].changesPercentage >= 0
-                      ? "positive"
-                      : "negative"
-                  }
+              {amazonData[0] && (
+                <div
+                  className="ticker-card"
+                  onClick={() => handleClick(amazonData[0].symbol)}
                 >
-                  {amazonData[0].changesPercentage >= 0
-                    ? "▲"
-                    : "▼"}
+                  <h3>{amazonData[0].symbol}</h3>
+                  <p>${amazonData[0].price?.toFixed(2)}</p>
 
-                  {" "}
-                  {Math.abs(
-                    amazonData[0].changesPercentage
-                  ).toFixed(2)}%
-                </span>
-              </div>
-            )}
+                  <span
+                    className={
+                      amazonData[0].changesPercentage >= 0
+                        ? "positive"
+                        : "negative"
+                    }
+                  >
+                    {amazonData[0].changesPercentage >= 0 ? "▲" : "▼"}{" "}
+                    {Math.abs(amazonData[0].changesPercentage).toFixed(2)}%
+                  </span>
+                </div>
+              )}
 
-            {googleData[0] && (
-              <div className="ticker-card">
-                <h3>{googleData[0].symbol}</h3>
-                <p>${googleData[0].price?.toFixed(2)}</p>
-
-                <span
-                  className={
-                    googleData[0].changesPercentage >= 0
-                      ? "positive"
-                      : "negative"
-                  }
+              {googleData[0] && (
+                <div
+                  className="ticker-card"
+                  onClick={() => handleClick(googleData[0].symbol)}
                 >
-                  {googleData[0].changesPercentage >= 0
-                    ? "▲"
-                    : "▼"}
+                  <h3>{googleData[0].symbol}</h3>
+                  <p>${googleData[0].price?.toFixed(2)}</p>
 
-                  {" "}
-                  {Math.abs(
-                    googleData[0].changesPercentage
-                  ).toFixed(2)}%
-                </span>
-              </div>
-            )}
+                  <span
+                    className={
+                      googleData[0].changesPercentage >= 0
+                        ? "positive"
+                        : "negative"
+                    }
+                  >
+                    {googleData[0].changesPercentage >= 0 ? "▲" : "▼"}{" "}
+                    {Math.abs(googleData[0].changesPercentage).toFixed(2)}%
+                  </span>
+                </div>
+              )}
 
-            {metaData[0] && (
-              <div className="ticker-card">
-                <h3>{metaData[0].symbol}</h3>
-                <p>${metaData[0].price?.toFixed(2)}</p>
-
-                <span
-                  className={
-                    metaData[0].changesPercentage >= 0
-                      ? "positive"
-                      : "negative"
-                  }
+              {metaData[0] && (
+                <div
+                  className="ticker-card"
+                  onClick={() => handleClick(metaData[0].symbol)}
                 >
-                  {metaData[0].changesPercentage >= 0
-                    ? "▲"
-                    : "▼"}
+                  <h3>{metaData[0].symbol}</h3>
+                  <p>${metaData[0].price?.toFixed(2)}</p>
 
-                  {" "}
-                  {Math.abs(
-                    metaData[0].changesPercentage
-                  ).toFixed(2)}%
-                </span>
-              </div>
-            )}
+                  <span
+                    className={
+                      metaData[0].changesPercentage >= 0
+                        ? "positive"
+                        : "negative"
+                    }
+                  >
+                    {metaData[0].changesPercentage >= 0 ? "▲" : "▼"}{" "}
+                    {Math.abs(metaData[0].changesPercentage).toFixed(2)}%
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
-    )}
-  </>
-);
+        </section>
+      )}
+    </>
+  );
 }
 
 export default Famous;

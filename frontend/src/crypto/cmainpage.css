@@ -1,0 +1,277 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #050816;
+}
+
+.crypto-main-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #050816;
+  color: #ffffff;
+  padding: 18px 22px;
+  font-family: Arial, sans-serif;
+}
+
+.crypto-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(360px, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.crypto-chart-panel,
+.crypto-news-panel {
+  background: #111827;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+}
+
+.crypto-chart-panel {
+  padding: 24px 22px;
+}
+
+.crypto-news-panel {
+  padding: 24px;
+  min-height: calc(100vh - 36px);
+}
+
+.chart-box {
+  width: 100%;
+}
+
+.chart-header h1 {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.chart-header p {
+  margin: 8px 0 18px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.chart-area {
+  width: 100%;
+  height: 560px;
+}
+
+.chart-area canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.crypto-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 22px;
+}
+
+.stat-card {
+  padding: 0 10px 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.stat-card span {
+  display: block;
+  margin-bottom: 7px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.stat-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.crypto-news {
+  height: 100%;
+}
+
+.news-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.news-header p {
+  margin: 8px 0 22px;
+  color: #94a3b8;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.news-card {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  padding: 13px;
+  background: rgba(5, 8, 22, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 13px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  border-color: #00c896;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 14px 28px rgba(0, 200, 150, 0.08);
+}
+
+.news-card img {
+  width: 96px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.news-content h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.news-content p {
+  margin: 7px 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-content span {
+  color: #00c896;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .crypto-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .crypto-news-panel {
+    min-height: auto;
+  }
+
+  .chart-area {
+    height: 460px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .crypto-main-page {
+    padding: 14px;
+  }
+
+  .crypto-chart-panel,
+  .crypto-news-panel {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .chart-header h1 {
+    font-size: 34px;
+  }
+
+  .news-header h2 {
+    font-size: 30px;
+  }
+
+  .chart-area {
+    height: 340px;
+  }
+
+  .crypto-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .news-card {
+    grid-template-columns: 82px 1fr;
+  }
+
+  .news-card img {
+    width: 82px;
+    height: 74px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .crypto-main-page {
+    padding: 10px;
+  }
+
+  .crypto-layout {
+    gap: 14px;
+  }
+
+  .crypto-chart-panel,
+  .crypto-news-panel {
+    padding: 14px;
+    border-radius: 13px;
+  }
+
+  .chart-header h1 {
+    font-size: 29px;
+  }
+
+  .chart-header p {
+    font-size: 13px;
+  }
+
+  .chart-area {
+    height: 260px;
+  }
+
+  .stat-card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .stat-card span,
+  .stat-card h3 {
+    font-size: 15px;
+  }
+
+  .news-header h2 {
+    font-size: 26px;
+  }
+
+  .news-card {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card img {
+    width: 100%;
+    height: 150px;
+  }
+}

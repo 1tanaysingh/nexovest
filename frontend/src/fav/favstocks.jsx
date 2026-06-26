@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./favstocks.css";
 
 
 
 
 function Favstocks() {
+  const navigate = useNavigate();
   const [topstocks, setTopstocks] = useState([]);
   const [selectedStocks, setSelectedStocks] = useState([]);
   const [searchstock, setSearchstock] = useState("");
@@ -84,6 +86,7 @@ function Favstocks() {
       );
 
       alert("Stocks Saved Successfully");
+      navigate("/home");
     } catch (error) {
       console.log(error);
     }

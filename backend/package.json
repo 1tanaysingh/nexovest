@@ -5,6 +5,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "mongoose": "^8.24.0"
+    "mongoose": "^8.24.0",
+    "params": "^0.1.1"
   }
 }

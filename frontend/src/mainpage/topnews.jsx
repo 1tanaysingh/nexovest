@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { useState, useEffect } from "react";
-import "./Topnews.css";
+import "./topnews.css";
 function Topnews({ symbol }) {
   const [news, setNews] = useState([]);
   useEffect(() => {

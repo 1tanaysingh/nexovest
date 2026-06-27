@@ -25,7 +25,7 @@ function Auth() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/login",
+        "https://nexovest-backend.onrender.com/login",
         {
           email: lemail,
           password: lpassword,
@@ -53,7 +53,7 @@ function Auth() {
 
     try {
       await axios.post(
-        "http://localhost:5000/signup",
+        "https://nexovest-backend.onrender.com/signup",
         {
           email: semail,
           password: spassword,

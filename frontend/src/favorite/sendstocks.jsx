@@ -11,7 +11,7 @@ function Sendstocks() {
   useEffect(() => {
     const fetchFavouriteStocks = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/sendfavstocks", {
+        const res = await axios.get("https://nexovest-backend.onrender.com/sendfavstocks", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

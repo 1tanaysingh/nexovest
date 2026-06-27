@@ -5,15 +5,7 @@ export const getNews = async (req, res) => {
     const { id } = req.params;
 
     const response = await axios.get(
-      "https://gnews.io/api/v4/search",
-      {
-        params: {
-          q: id,
-          lang: "en",
-          max: 5,
-          token: process.env.GNEWS_API_KEY,
-        },
-      }
+      `https://gnews.io/api/v4/search?q=${id}&lang=en&max=5&token=${process.env.GNEWS_API_KEY}`
     );
 
     res.status(200).json(response.data);

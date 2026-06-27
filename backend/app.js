@@ -13,6 +13,7 @@ import { sendFavStocks } from "./controller/sendfavstocks.js";
 dotenv.config();
 
 const app = express();
+app.use(express.json());
 
 // Middleware
 app.use(

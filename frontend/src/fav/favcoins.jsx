@@ -53,7 +53,7 @@ function Favcoins() {
   const saveFavorites = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/savefavcrypto",
+        "https://nexovest-backend.onrender.com/savefavcrypto",
         {
           cryptoIds: selectedCoins,
         },

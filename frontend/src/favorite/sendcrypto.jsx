@@ -14,7 +14,7 @@ function Sendcrypto() {
       try {
         // 1. Favourite crypto IDs from backend
         const response = await axios.get(
-          "http://localhost:5000/sendfavcrypto",
+          "https://nexovest-backend.onrender.com/sendfavcrypto",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

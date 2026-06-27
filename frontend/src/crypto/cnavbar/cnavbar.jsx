@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Cnavbar.css";
+import "./cnavbar.css";
 import TopCrypto from "../ctopmovers/ctopmovers";
 import { useNavigate } from "react-router-dom";
 

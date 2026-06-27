@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import CryptoChart from "./Cchart/cchart";
-import Cnews from "./Cnews/cnews";
+import CryptoChart from "./cchart/cchart";
+import Cnews from "./cnews/cnews";
 import "./cmainpage.css";
 function Cmainpage() {
   const { id } = useParams();

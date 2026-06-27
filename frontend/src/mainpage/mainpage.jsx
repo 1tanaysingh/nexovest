@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import StockChart from "./stockchart";
 import Topnews from "./topnews";
 
-import "./Mainpage.css";
+import "./mainpage.css";
 
 function Mainpage() {
   const { symbol } = useParams();

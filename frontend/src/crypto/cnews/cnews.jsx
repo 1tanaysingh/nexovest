@@ -8,7 +8,7 @@ function Cnews({ id }) {
     async function fetchNews() {
       try {
         const res = await axios.get(
-          `https://gnews.io/api/v4/search?q=${id}&lang=en&max=5&token=685894d06e58f4e49e5ebfef54d7d6fa`,
+          `https://nexovest-backend.onrender.com/news/${id}`,
         );
 
         setNews(res.data.articles || []);

@@ -74,7 +74,7 @@ function Favstocks() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/savefavstocks",
+        "https://nexovest-backend.onrender.com/savefavstocks",
         {
           stockIds: selectedStocks,
         },

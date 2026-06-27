@@ -10,6 +10,7 @@ import { login } from "./auth/login.js";
 import { token } from "./middleware/token.js";
 import { sendFavCrypto } from "./controller/sendfavcrypto.js";
 import { sendFavStocks } from "./controller/sendfavstocks.js";
+import { getNews } from "./controller/news.js";
 dotenv.config();
 
 const app = express();
@@ -51,6 +52,7 @@ app.post("/savefavcrypto", token, saveFavcrypto);
 app.post("/savefavstocks", token, saveFavStocks);
 app.get("/sendfavcrypto", token,sendFavCrypto);
 app.get("/sendfavstocks", token, sendFavStocks);
+app.get("/news/:id", getNews);
 
 export default app;
 

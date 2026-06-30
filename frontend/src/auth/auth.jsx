@@ -4,16 +4,18 @@ import { useNavigate } from "react-router-dom";
 import "./auth.css";
 
 function Auth() {
+  const navigate = useNavigate();
+
+  const [isLogin, setIsLogin] = useState(true);
+
+  // Login
   const [lemail, setLemail] = useState("");
   const [lpassword, setLpassword] = useState("");
 
+  // Signup
   const [semail, setSemail] = useState("");
   const [spassword, setSpassword] = useState("");
   const [dob, setDob] = useState("");
-
-  const [active, setActive] = useState("");
-
-  const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -35,11 +37,12 @@ function Auth() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
 
-      alert("Login successful");
+      alert("Login Successful");
 
       navigate("/home");
-    } catch (error) {
-      console.error("Login error:", error);
+    } catch (err) {
+      console.log(err);
+      alert("Invalid Credentials");
     }
   }
 
@@ -57,104 +60,157 @@ function Auth() {
         {
           email: semail,
           password: spassword,
-          dob: dob,
+          dob,
         }
       );
 
-      alert("Signup successful");
+      alert("Account Created Successfully");
 
-      navigate("/choice");
-    } catch (error) {
-      console.error("Signup error:", error);
+      setIsLogin(true);
+    } catch (err) {
+      console.log(err);
+      alert("Signup Failed");
     }
   }
 
   return (
-    <div
-      className="auth-container"
-      onMouseLeave={() => setActive("")}
-    >
-      <div
-        className="hover-left"
-        onMouseEnter={() => setActive("login")}
-      ></div>
+    <div className="auth-page">
 
-      <div
-        className="hover-right"
-        onMouseEnter={() => setActive("signup")}
-      ></div>
+      <div className="bg-circle one"></div>
+      <div className="bg-circle two"></div>
 
-      <div className="welcome-panel">
+      <div className="left-side">
+
         <h1>Nexovest</h1>
 
-        <p>Smart Investing Starts Here</p>
+        <p>
+          Smart Investing Starts Here
+        </p>
 
         <span>
-          Hover left for Login • Hover right for Sign Up
+          Track • Invest • Grow
         </span>
+
       </div>
 
-      <div
-        className={`login-form ${
-          active === "login" ? "show" : ""
-        }`}
-      >
-        <h2>Login</h2>
+      <div className="right-side">
 
-        <form onSubmit={handleLogin}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={lemail}
-            onChange={(e) => setLemail(e.target.value)}
-          />
+        <div
+          className={`auth-card ${
+            isLogin ? "login-mode" : "signup-mode"
+          }`}
+        >
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={lpassword}
-            onChange={(e) => setLpassword(e.target.value)}
-          />
+          {isLogin ? (
+            <>
+              <h2>Welcome Back 👋</h2>
 
-          <button type="submit">
-            Login
-          </button>
-        </form>
+              <p className="subtitle">
+                Login to continue investing.
+              </p>
+
+              <form onSubmit={handleLogin}>
+
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={lemail}
+                  onChange={(e) =>
+                    setLemail(e.target.value)
+                  }
+                />
+
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={lpassword}
+                  onChange={(e) =>
+                    setLpassword(e.target.value)
+                  }
+                />
+
+                <button type="submit">
+                  Login
+                </button>
+
+              </form>
+
+              <p className="switch">
+
+                Don't have an account?
+
+                <span
+                  onClick={() =>
+                    setIsLogin(false)
+                  }
+                >
+                  Sign Up
+                </span>
+
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>Create Account 🚀</h2>
+
+              <p className="subtitle">
+                Start your investing journey.
+              </p>
+
+              <form onSubmit={handleSignup}>
+
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={semail}
+                  onChange={(e) =>
+                    setSemail(e.target.value)
+                  }
+                />
+
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={spassword}
+                  onChange={(e) =>
+                    setSpassword(e.target.value)
+                  }
+                />
+
+                <input
+                  type="date"
+                  value={dob}
+                  onChange={(e) =>
+                    setDob(e.target.value)
+                  }
+                />
+
+                <button type="submit">
+                  Create Account
+                </button>
+
+              </form>
+
+              <p className="switch">
+
+                Already have an account?
+
+                <span
+                  onClick={() =>
+                    setIsLogin(true)
+                  }
+                >
+                  Login
+                </span>
+
+              </p>
+            </>
+          )}
+
+        </div>
+
       </div>
 
-      <div
-        className={`signup-form ${
-          active === "signup" ? "show" : ""
-        }`}
-      >
-        <h2>Create Account</h2>
-
-        <form onSubmit={handleSignup}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={semail}
-            onChange={(e) => setSemail(e.target.value)}
-          />
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={spassword}
-            onChange={(e) => setSpassword(e.target.value)}
-          />
-
-          <input
-            type="date"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-          />
-
-          <button type="submit">
-            Sign Up
-          </button>
-        </form>
-      </div>
     </div>
   );
 }
